@@ -18,30 +18,82 @@ const activityTemplates = activitiesData.activityTemplates;
 const moodEmojis = activitiesData.moodEmojis;
 const activityTags = activitiesData.activityTags;
 
-// Sample photo URLs (using placeholder images for demo)
-const SAMPLE_PHOTOS = [
-  'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800',
-  'https://images.unsplash.com/photo-1588072432836-e10032774350?w=800',
-  'https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=800',
-  'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800',
-  'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800',
-  'https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=800',
-  'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800',
-  'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800',
+// Local sample photos organized by category
+// These should be placed in /public/images/moments/
+const LOCAL_PHOTOS = {
+  science_lab: [
+    '/images/moments/science-lab-1.jpg',
+    '/images/moments/science-lab-2.jpg',
+  ],
+  art_class: [
+    '/images/moments/art-class-1.jpg',
+    '/images/moments/art-class-2.jpg',
+  ],
+  sports: [
+    '/images/moments/football-1.jpg',
+    '/images/moments/sports-day-1.jpg',
+    '/images/moments/morning-exercise-1.jpg',
+  ],
+  cultural: [
+    '/images/moments/traditional-dance-1.jpg',
+    '/images/moments/festival-1.jpg',
+  ],
+  music: [
+    '/images/moments/music-class-1.jpg',
+  ],
+  library: [
+    '/images/moments/reading-time-1.jpg',
+  ],
+  assembly: [
+    '/images/moments/assembly-1.jpg',
+  ],
+  general: [
+    '/images/moments/math-class-1.jpg',
+    '/images/moments/computer-class-1.jpg',
+    '/images/moments/classroom-1.jpg',
+  ],
+  field_trip: [
+    '/images/moments/field-trip-1.jpg',
+  ],
+  celebration: [
+    '/images/moments/festival-1.jpg',
+    '/images/moments/celebration-1.jpg',
+  ],
+  preschool: [
+    '/images/moments/preschool-play-1.jpg',
+    '/images/moments/preschool-outdoor-1.jpg',
+    '/images/moments/preschool-story-1.jpg',
+    '/images/moments/preschool-abc-1.jpg',
+  ],
+};
+
+// Fallback to placeholder if local images don't exist
+const PLACEHOLDER_PHOTOS = [
+  '/images/moments/classroom-1.jpg',
+  '/images/moments/math-class-1.jpg',
+  '/images/moments/computer-class-1.jpg',
 ];
 
-function generateMediaItems(): MediaItem[] {
-  const numItems = 1 + Math.floor(Math.random() * 4); // 1-4 media items
+// Get photos for a specific moment type
+function getPhotosForMomentType(momentType: string): string[] {
+  const photos = LOCAL_PHOTOS[momentType as keyof typeof LOCAL_PHOTOS] || LOCAL_PHOTOS.general;
+  return photos.length > 0 ? photos : PLACEHOLDER_PHOTOS;
+}
+
+function generateMediaItems(momentType: string = 'general'): MediaItem[] {
+  const numItems = 1 + Math.floor(Math.random() * 3); // 1-3 media items
   const items: MediaItem[] = [];
+  const photos = getPhotosForMomentType(momentType);
 
   for (let i = 0; i < numItems; i++) {
-    const isVideo = Math.random() > 0.85; // 15% videos
+    const isVideo = Math.random() > 0.9; // 10% videos
+    const photoUrl = photos[Math.floor(Math.random() * photos.length)];
 
     items.push({
       id: faker.string.uuid(),
       type: isVideo ? 'video' : 'image',
-      url: SAMPLE_PHOTOS[Math.floor(Math.random() * SAMPLE_PHOTOS.length)],
-      thumbnailUrl: SAMPLE_PHOTOS[Math.floor(Math.random() * SAMPLE_PHOTOS.length)],
+      url: photoUrl,
+      thumbnailUrl: photoUrl,
       caption: Math.random() > 0.5 ? 'Learning is fun!' : undefined,
       captionNe: Math.random() > 0.5 ? 'सिक्नु रमाइलो छ!' : undefined,
       width: 800,
@@ -182,7 +234,7 @@ export function generateClassroomMoment(
     content,
     contentNe,
 
-    media: generateMediaItems(),
+    media: generateMediaItems(momentType),
     mediaLayout: Math.random() > 0.5 ? 'grid' : 'single',
 
     taggedStudentIds: [],

@@ -16,6 +16,8 @@ import {
   FileText,
   Bell,
   Backpack,
+  Wallet,
+  History,
   type LucideIcon,
 } from 'lucide-react';
 import { UserRole } from '@/store/authStore';
@@ -66,6 +68,11 @@ export const navigationConfig: Record<Exclude<UserRole, null>, NavConfig> = {
         title: { en: 'Achievements', ne: 'उपलब्धिहरू' },
         href: '/parent/achievements',
         icon: Trophy,
+      },
+      {
+        title: { en: 'Fees & Billing', ne: 'शुल्क र बिलिंग' },
+        href: '/parent/fees',
+        icon: Wallet,
       },
     ],
     secondaryNav: [
@@ -168,6 +175,11 @@ export const navigationConfig: Record<Exclude<UserRole, null>, NavConfig> = {
         href: '/teacher/leaves',
         icon: FileText,
         badge: 4,
+      },
+      {
+        title: { en: 'Attendance Reports', ne: 'उपस्थिति रिपोर्ट' },
+        href: '/teacher/reports',
+        icon: History,
       },
       {
         title: { en: 'Settings', ne: 'सेटिङ्स' },
