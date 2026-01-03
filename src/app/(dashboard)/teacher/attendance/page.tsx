@@ -263,7 +263,7 @@ export default function AttendancePage() {
                           #{student.rollNo}
                         </span>
                         {student.hasLeaveRequest && (
-                          <Badge variant="outline\" className="text-xs text-orange-600 border-orange-400">
+                          <Badge variant="outline" className="text-xs text-orange-600 border-orange-400">
                             {locale === 'en' ? 'Leave Request' : 'बिदा अनुरोध'}
                           </Badge>
                         )}

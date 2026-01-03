@@ -33,9 +33,9 @@ export default function FeedPage() {
           case 'videos':
             return activity.media?.some((m) => m.type === 'video');
           case 'announcements':
-            return activity.activityType === 'announcement';
+            return activity.type === 'event_announcement';
           case 'achievements':
-            return activity.activityType === 'achievement';
+            return activity.type === 'achievement_earned';
           default:
             return true;
         }
@@ -120,7 +120,7 @@ export default function FeedPage() {
 
       {/* Activity Feed */}
       {filteredActivities.length > 0 ? (
-        <ActivityFeed activities={filteredActivities} onReaction={handleReaction} />
+        <ActivityFeed activities={filteredActivities} onReact={handleReaction} />
       ) : (
         <div className="text-center py-12">
           <Filter className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
