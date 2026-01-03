@@ -14,6 +14,7 @@ import {
   ChildProfileCard,
   MilestoneTracker,
   ReportGenerator,
+  AddEvidenceModal,
 } from '@/components/preschool';
 import {
   Users,
@@ -135,6 +136,8 @@ export default function PreschoolDashboard() {
   const [activeTab, setActiveTab] = useState('children');
   const [selectedChildId, setSelectedChildId] = useState<string | null>(null);
   const [showActivityLogger, setShowActivityLogger] = useState(false);
+  const [showEvidenceModal, setShowEvidenceModal] = useState(false);
+  const [selectedMilestone, setSelectedMilestone] = useState<typeof demoMilestones[0] | null>(null);
 
   const formatNumber = (num: number) => {
     if (useDevanagariNumerals && locale === 'ne') {
@@ -207,6 +210,24 @@ export default function PreschoolDashboard() {
       locale === 'en'
         ? 'Activity logged successfully!'
         : 'गतिविधि सफलतापूर्वक लग गरियो!'
+    );
+  };
+
+  const handleAddEvidence = (milestoneId: string) => {
+    const milestone = demoMilestones.find((m) => m.id === milestoneId);
+    if (milestone) {
+      setSelectedMilestone(milestone);
+      setShowEvidenceModal(true);
+    }
+  };
+
+  const handleEvidenceSubmit = () => {
+    setShowEvidenceModal(false);
+    setSelectedMilestone(null);
+    toast.success(
+      locale === 'en'
+        ? 'Evidence added successfully!'
+        : 'प्रमाण सफलतापूर्वक थपियो!'
     );
   };
 
@@ -428,13 +449,7 @@ export default function PreschoolDashboard() {
                         : 'माइलस्टोन अपडेट भयो!'
                     );
                   }}
-                  onAddEvidence={() => {
-                    toast.info(
-                      locale === 'en'
-                        ? 'Add evidence modal coming soon'
-                        : 'प्रमाण थप्ने मोडल छिट्टै आउँदैछ'
-                    );
-                  }}
+                  onAddEvidence={handleAddEvidence}
                 />
               ) : (
                 <Card>
@@ -509,6 +524,18 @@ export default function PreschoolDashboard() {
         }))}
         onSubmit={handleActivitySubmit}
         preSelectedChildId={selectedChildId || undefined}
+      />
+
+      {/* Add Evidence Modal */}
+      <AddEvidenceModal
+        isOpen={showEvidenceModal}
+        onClose={() => {
+          setShowEvidenceModal(false);
+          setSelectedMilestone(null);
+        }}
+        milestoneTitle={selectedMilestone?.title}
+        milestoneTitleNe={selectedMilestone?.titleNe}
+        onSubmit={handleEvidenceSubmit}
       />
     </div>
   );

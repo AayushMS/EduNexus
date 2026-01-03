@@ -4,3 +4,4 @@ export { ActivityLogger } from './ActivityLogger';
 export { ChildProfileCard } from './ChildProfileCard';
 export { MilestoneTracker } from './MilestoneTracker';
 export { ReportGenerator } from './ReportGenerator';
+export { AddEvidenceModal } from './AddEvidenceModal';
