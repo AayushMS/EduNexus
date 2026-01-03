@@ -201,8 +201,7 @@ export default function PreschoolDashboard() {
     setShowActivityLogger(true);
   };
 
-  const handleActivitySubmit = (activity: unknown) => {
-    console.log('Activity logged:', activity);
+  const handleActivitySubmit = () => {
     setShowActivityLogger(false);
     toast.success(
       locale === 'en'
@@ -232,8 +231,7 @@ export default function PreschoolDashboard() {
           </Button>
           <ReportGenerator
             children={demoChildren}
-            onGenerate={(config) => {
-              console.log('Generating reports:', config);
+            onGenerate={() => {
               toast.success(
                 locale === 'en'
                   ? 'Reports generated successfully!'
@@ -423,20 +421,18 @@ export default function PreschoolDashboard() {
                   childName={selectedChild.name}
                   childNameNe={selectedChild.nameNe}
                   milestones={demoMilestones}
-                  onMarkMilestone={(id, status) => {
-                    console.log('Mark milestone:', id, status);
+                  onMarkMilestone={() => {
                     toast.success(
                       locale === 'en'
                         ? 'Milestone updated!'
                         : 'माइलस्टोन अपडेट भयो!'
                     );
                   }}
-                  onAddEvidence={(id) => {
-                    console.log('Add evidence for:', id);
+                  onAddEvidence={() => {
                     toast.info(
                       locale === 'en'
-                        ? 'Add evidence modal would open here'
-                        : 'प्रमाण थप्ने मोडल यहाँ खुल्नेछ'
+                        ? 'Add evidence modal coming soon'
+                        : 'प्रमाण थप्ने मोडल छिट्टै आउँदैछ'
                     );
                   }}
                 />

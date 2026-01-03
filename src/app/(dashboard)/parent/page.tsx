@@ -126,8 +126,7 @@ export default function ParentDashboard() {
   };
 
   // Handle leave request submission
-  const handleLeaveSubmit = (data: unknown) => {
-    console.log('Leave request submitted:', data);
+  const handleLeaveSubmit = () => {
     toast.success(
       locale === 'en'
         ? 'Leave request submitted successfully!'

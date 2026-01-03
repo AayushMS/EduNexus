@@ -209,8 +209,7 @@ export default function TeacherDashboard() {
     setActiveTab('attendance');
   };
 
-  const handleMomentPost = (data: unknown) => {
-    console.log('Moment posted:', data);
+  const handleMomentPost = () => {
     toast.success(
       locale === 'en'
         ? 'Moment posted to parent feeds!'
@@ -299,8 +298,7 @@ export default function TeacherDashboard() {
                 className={selectedClassId ? demoClasses.find(c => c.id === selectedClassId)?.name || 'Grade 5A' : 'Grade 5A'}
                 classNameNe={selectedClassId ? demoClasses.find(c => c.id === selectedClassId)?.nameNe || 'कक्षा ५क' : 'कक्षा ५क'}
                 students={demoStudents}
-                onSubmit={(attendance) => {
-                  console.log('Attendance:', attendance);
+                onSubmit={() => {
                   toast.success(
                     locale === 'en'
                       ? 'Attendance submitted successfully!'
@@ -316,8 +314,12 @@ export default function TeacherDashboard() {
                 assignmentTitleNe="एकाइ परीक्षा - अध्याय ४"
                 maxScore={50}
                 students={demoStudents}
-                onSave={(grades) => {
-                  console.log('Grades:', grades);
+                onSave={() => {
+                  toast.success(
+                    locale === 'en'
+                      ? 'Grades saved successfully!'
+                      : 'ग्रेडहरू सफलतापूर्वक सेभ गरियो!'
+                  );
                 }}
               />
             </TabsContent>
