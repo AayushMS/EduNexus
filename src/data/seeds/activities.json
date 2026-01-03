@@ -1,0 +1,206 @@
+{
+  "activityTemplates": [
+    {
+      "type": "classroom_moment",
+      "momentType": "science_lab",
+      "templates": [
+        {
+          "title": "Exciting Science Experiment",
+          "titleNe": "रोमाञ्चक विज्ञान प्रयोग",
+          "content": "Our students conducted an amazing experiment today! They learned about {topic} through hands-on activities.",
+          "contentNe": "हाम्रा विद्यार्थीहरूले आज एउटा अद्भुत प्रयोग गरे! तिनीहरूले {topic} बारेमा हाते गतिविधिहरू मार्फत सिके।",
+          "topics": [
+            {"en": "chemical reactions", "ne": "रासायनिक प्रतिक्रियाहरू"},
+            {"en": "plant growth", "ne": "बिरुवाको वृद्धि"},
+            {"en": "magnetism", "ne": "चुम्बकत्व"},
+            {"en": "electricity", "ne": "बिजुली"}
+          ]
+        }
+      ]
+    },
+    {
+      "type": "classroom_moment",
+      "momentType": "art_class",
+      "templates": [
+        {
+          "title": "Creative Art Session",
+          "titleNe": "सृजनात्मक कला सत्र",
+          "content": "Students showcased their creativity today! Check out these wonderful artworks on {theme}.",
+          "contentNe": "विद्यार्थीहरूले आज आफ्नो सृजनशीलता देखाए! {theme} मा यी अद्भुत कलाकृतिहरू हेर्नुहोस्।",
+          "topics": [
+            {"en": "nature", "ne": "प्रकृति"},
+            {"en": "festivals", "ne": "चाडपर्व"},
+            {"en": "my family", "ne": "मेरो परिवार"},
+            {"en": "Nepal", "ne": "नेपाल"}
+          ]
+        }
+      ]
+    },
+    {
+      "type": "classroom_moment",
+      "momentType": "sports",
+      "templates": [
+        {
+          "title": "Sports Day Fun",
+          "titleNe": "खेलकुद दिनको रमाइलो",
+          "content": "Great energy on the field today! Students enjoyed {activity} and showed excellent teamwork.",
+          "contentNe": "आज मैदानमा उत्कृष्ट उर्जा! विद्यार्थीहरूले {activity} को आनन्द लिए र उत्कृष्ट टोली कार्य देखाए।",
+          "topics": [
+            {"en": "football practice", "ne": "फुटबल अभ्यास"},
+            {"en": "running races", "ne": "दौड प्रतियोगिता"},
+            {"en": "volleyball", "ne": "भलिबल"},
+            {"en": "yoga session", "ne": "योग सत्र"}
+          ]
+        }
+      ]
+    },
+    {
+      "type": "classroom_moment",
+      "momentType": "cultural",
+      "templates": [
+        {
+          "title": "Cultural Celebration",
+          "titleNe": "सांस्कृतिक उत्सव",
+          "content": "Beautiful cultural performances today! Students performed {performance} with great enthusiasm.",
+          "contentNe": "आज सुन्दर सांस्कृतिक प्रदर्शनहरू! विद्यार्थीहरूले ठूलो उत्साहका साथ {performance} प्रदर्शन गरे।",
+          "topics": [
+            {"en": "traditional Nepali dance", "ne": "परम्परागत नेपाली नृत्य"},
+            {"en": "folk songs", "ne": "लोक गीतहरू"},
+            {"en": "Dashain celebration", "ne": "दशैं उत्सव"},
+            {"en": "Tihar performances", "ne": "तिहार प्रदर्शनहरू"}
+          ]
+        }
+      ]
+    },
+    {
+      "type": "classroom_moment",
+      "momentType": "general",
+      "templates": [
+        {
+          "title": "Classroom Activities",
+          "titleNe": "कक्षा गतिविधिहरू",
+          "content": "Another productive day in class! Students worked on {activity} with great focus.",
+          "contentNe": "कक्षामा अर्को उत्पादक दिन! विद्यार्थीहरूले {activity} मा ठूलो ध्यानका साथ काम गरे।",
+          "topics": [
+            {"en": "group projects", "ne": "समूह परियोजनाहरू"},
+            {"en": "reading activities", "ne": "पठन गतिविधिहरू"},
+            {"en": "math problems", "ne": "गणित समस्याहरू"},
+            {"en": "creative writing", "ne": "सृजनात्मक लेखन"}
+          ]
+        }
+      ]
+    },
+    {
+      "type": "assignment_posted",
+      "templates": [
+        {
+          "title": "New Assignment: {subject}",
+          "titleNe": "नयाँ असाइनमेन्ट: {subject}",
+          "content": "A new assignment has been posted for {subject}. Due date: {dueDate}. Don't forget to submit on time!",
+          "contentNe": "{subject} को लागि नयाँ असाइनमेन्ट पोस्ट गरिएको छ। अन्तिम मिति: {dueDate}। समयमै पेश गर्न नबिर्सनुहोस्!"
+        }
+      ]
+    },
+    {
+      "type": "grade_released",
+      "templates": [
+        {
+          "title": "Grades Released: {assessment}",
+          "titleNe": "ग्रेडहरू जारी: {assessment}",
+          "content": "Grades for {assessment} have been released. Check your child's performance in the app!",
+          "contentNe": "{assessment} को ग्रेडहरू जारी गरिएको छ। एपमा तपाईंको बच्चाको प्रदर्शन हेर्नुहोस्!"
+        }
+      ]
+    },
+    {
+      "type": "event_announcement",
+      "templates": [
+        {
+          "title": "{eventName}",
+          "titleNe": "{eventNameNe}",
+          "content": "Mark your calendars! {eventDescription}. Date: {eventDate}",
+          "contentNe": "क्यालेन्डरमा चिन्ह लगाउनुहोस्! {eventDescriptionNe}। मिति: {eventDate}"
+        }
+      ],
+      "events": [
+        {
+          "name": "Parent-Teacher Meeting",
+          "nameNe": "अभिभावक-शिक्षक भेटघाट",
+          "description": "Join us for PTM to discuss your child's progress",
+          "descriptionNe": "आफ्नो बच्चाको प्रगतिबारे छलफल गर्न PTM मा सामेल हुनुहोस्"
+        },
+        {
+          "name": "Annual Sports Day",
+          "nameNe": "वार्षिक खेलकुद दिवस",
+          "description": "Annual sports competition and fun activities",
+          "descriptionNe": "वार्षिक खेलकुद प्रतियोगिता र रमाइलो गतिविधिहरू"
+        },
+        {
+          "name": "Science Exhibition",
+          "nameNe": "विज्ञान प्रदर्शनी",
+          "description": "Students will showcase their science projects",
+          "descriptionNe": "विद्यार्थीहरूले आफ्ना विज्ञान परियोजनाहरू प्रदर्शन गर्नेछन्"
+        },
+        {
+          "name": "Cultural Program",
+          "nameNe": "सांस्कृतिक कार्यक्रम",
+          "description": "A celebration of our diverse cultural heritage",
+          "descriptionNe": "हाम्रो विविध सांस्कृतिक सम्पदाको उत्सव"
+        }
+      ]
+    },
+    {
+      "type": "achievement_earned",
+      "templates": [
+        {
+          "title": "Achievement Unlocked!",
+          "titleNe": "उपलब्धि अनलक!",
+          "content": "{studentName} has earned the '{badgeName}' badge! Congratulations on this achievement!",
+          "contentNe": "{studentName} ले '{badgeNameNe}' ब्याज कमाएको छ! यस उपलब्धिमा बधाई!"
+        }
+      ]
+    },
+    {
+      "type": "milestone_reached",
+      "templates": [
+        {
+          "title": "Milestone Achieved!",
+          "titleNe": "माइलस्टोन हासिल!",
+          "content": "Celebrate! {studentName} has reached a new milestone: {milestone}",
+          "contentNe": "उत्सव मनाउनुहोस्! {studentName} ले नयाँ माइलस्टोन हासिल गरेको छ: {milestoneNe}"
+        }
+      ],
+      "milestones": [
+        {"en": "100 XP earned", "ne": "१०० XP कमाइयो"},
+        {"en": "Level 5 reached", "ne": "स्तर ५ पुग्यो"},
+        {"en": "10 homework streak", "ne": "१० गृहकार्य स्ट्रिक"},
+        {"en": "Perfect attendance month", "ne": "पूर्ण उपस्थिति महिना"},
+        {"en": "First badge earned", "ne": "पहिलो ब्याज कमाइयो"}
+      ]
+    }
+  ],
+  "moodEmojis": {
+    "happy": "😊",
+    "excited": "🤩",
+    "proud": "😤",
+    "focused": "🎯",
+    "creative": "🎨",
+    "curious": "🤔",
+    "tired": "😴",
+    "energetic": "⚡"
+  },
+  "activityTags": [
+    {"en": "Learning", "ne": "सिकाइ"},
+    {"en": "Fun", "ne": "रमाइलो"},
+    {"en": "Teamwork", "ne": "टोली कार्य"},
+    {"en": "Creativity", "ne": "सृजनशीलता"},
+    {"en": "Sports", "ne": "खेलकुद"},
+    {"en": "Culture", "ne": "संस्कृति"},
+    {"en": "Science", "ne": "विज्ञान"},
+    {"en": "Art", "ne": "कला"},
+    {"en": "Music", "ne": "संगीत"},
+    {"en": "Festival", "ne": "चाडपर्व"},
+    {"en": "Outdoor", "ne": "बाहिरी"},
+    {"en": "Reading", "ne": "पठन"}
+  ]
+}
