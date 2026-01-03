@@ -8,11 +8,14 @@ import { ChildSelector } from '@/components/parent/ChildSelector';
 import { QuickActions } from '@/components/parent/QuickActions';
 import { ParentStats } from '@/components/parent/ParentStats';
 import { LeaveRequestModal } from '@/components/parent/LeaveRequestModal';
+import { FeePaymentModal } from '@/components/parent/FeePaymentModal';
+import { PTMBookingModal } from '@/components/parent/PTMBookingModal';
 import { MilestoneCelebration } from '@/components/parent/MilestoneCelebration';
 import { Button } from '@/components/ui/button';
 import type { ReactionType } from '@/types/activity.types';
 import { toast } from 'sonner';
 import { Sparkles } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 // Demo parent ID (first parent in our mock data)
 const DEMO_PARENT_ID = 'parent-1';
@@ -30,8 +33,12 @@ export default function ParentDashboard() {
   const { locale } = useLocaleStore();
   const { parents, students, activityFeed } = useMockData();
 
+  const router = useRouter();
+
   // Modal states
   const [isLeaveModalOpen, setIsLeaveModalOpen] = useState(false);
+  const [isFeeModalOpen, setIsFeeModalOpen] = useState(false);
+  const [isPTMModalOpen, setIsPTMModalOpen] = useState(false);
   const [isCelebrationOpen, setIsCelebrationOpen] = useState(false);
 
   // Get the demo parent
@@ -94,22 +101,27 @@ export default function ParentDashboard() {
 
   // Handle quick action click
   const handleActionClick = (actionId: string) => {
-    if (actionId === 'leave') {
-      setIsLeaveModalOpen(true);
-      return;
-    }
-
-    const actionMessages: Record<string, { en: string; ne: string }> = {
-      fees: { en: 'Opening fee payment portal...', ne: 'शुल्क भुक्तानी पोर्टल खोल्दै...' },
-      ptm: { en: 'Opening PTM booking...', ne: 'PTM बुकिङ खोल्दै...' },
-      report: { en: 'Loading academic report...', ne: 'शैक्षिक रिपोर्ट लोड हुँदैछ...' },
-      message: { en: 'Opening messages...', ne: 'सन्देशहरू खोल्दै...' },
-      alerts: { en: 'Showing notifications...', ne: 'सूचनाहरू देखाउँदै...' },
-    };
-
-    const message = actionMessages[actionId];
-    if (message) {
-      toast.info(message[locale]);
+    switch (actionId) {
+      case 'leave':
+        setIsLeaveModalOpen(true);
+        break;
+      case 'fees':
+        setIsFeeModalOpen(true);
+        break;
+      case 'ptm':
+        setIsPTMModalOpen(true);
+        break;
+      case 'report':
+        router.push('/parent/academics');
+        break;
+      case 'message':
+        router.push('/parent/messages');
+        break;
+      case 'alerts':
+        router.push('/parent/notifications');
+        break;
+      default:
+        break;
     }
   };
 
@@ -210,6 +222,23 @@ export default function ParentDashboard() {
           nameNe: c.nameNe,
         }))}
         onSubmit={handleLeaveSubmit}
+      />
+
+      {/* Fee Payment Modal */}
+      <FeePaymentModal
+        isOpen={isFeeModalOpen}
+        onClose={() => setIsFeeModalOpen(false)}
+        children={children.map((c) => ({
+          id: c.id,
+          name: c.name,
+          nameNe: c.nameNe,
+        }))}
+      />
+
+      {/* PTM Booking Modal */}
+      <PTMBookingModal
+        isOpen={isPTMModalOpen}
+        onClose={() => setIsPTMModalOpen(false)}
       />
 
       {/* Milestone Celebration Modal */}

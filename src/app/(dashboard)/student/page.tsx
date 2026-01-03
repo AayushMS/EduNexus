@@ -25,6 +25,7 @@ import {
 } from 'lucide-react';
 import badgesJson from '@/data/seeds/badges.json';
 import type { Badge } from '@/types/gamification.types';
+import Link from 'next/link';
 
 const badgesData = badgesJson.badges as Badge[];
 
@@ -289,8 +290,10 @@ export default function StudentDashboard() {
                   <BookOpen className="h-5 w-5 text-blue-500" />
                   {locale === 'en' ? 'Homework' : 'गृहकार्य'}
                 </CardTitle>
-                <Button variant="ghost" size="sm">
-                  {locale === 'en' ? 'View All' : 'सबै हेर्नुहोस्'}
+                <Button variant="ghost" size="sm" asChild>
+                  <Link href="/student/assignments">
+                    {locale === 'en' ? 'View All' : 'सबै हेर्नुहोस्'}
+                  </Link>
                 </Button>
               </div>
             </CardHeader>
@@ -345,17 +348,23 @@ export default function StudentDashboard() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
-              <Button variant="outline" className="w-full justify-start gap-2">
-                <Users className="h-4 w-4" />
-                {locale === 'en' ? 'Study Squads' : 'अध्ययन समूह'}
+              <Button variant="outline" className="w-full justify-start gap-2" asChild>
+                <Link href="/student/squads">
+                  <Users className="h-4 w-4" />
+                  {locale === 'en' ? 'Study Squads' : 'अध्ययन समूह'}
+                </Link>
               </Button>
-              <Button variant="outline" className="w-full justify-start gap-2">
-                <Gamepad2 className="h-4 w-4" />
-                {locale === 'en' ? 'Leaderboard' : 'लिडरबोर्ड'}
+              <Button variant="outline" className="w-full justify-start gap-2" asChild>
+                <Link href="/student/leaderboard">
+                  <Gamepad2 className="h-4 w-4" />
+                  {locale === 'en' ? 'Leaderboard' : 'लिडरबोर्ड'}
+                </Link>
               </Button>
-              <Button variant="outline" className="w-full justify-start gap-2">
-                <Target className="h-4 w-4" />
-                {locale === 'en' ? 'Focus Mode' : 'फोकस मोड'}
+              <Button variant="outline" className="w-full justify-start gap-2" asChild>
+                <Link href="/student/focus">
+                  <Target className="h-4 w-4" />
+                  {locale === 'en' ? 'Focus Mode' : 'फोकस मोड'}
+                </Link>
               </Button>
             </CardContent>
           </Card>
