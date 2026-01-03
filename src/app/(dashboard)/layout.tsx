@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from '@/components/layout/Header';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { MobileNav } from '@/components/layout/MobileNav';
@@ -12,10 +12,10 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
+import { Logo, AnimatedLogo } from '@/components/shared';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { useEffect } from 'react';
 
 function MobileNavItem({ item, onClose }: { item: NavItem; onClose: () => void }) {
   const pathname = usePathname();
@@ -65,8 +65,11 @@ export default function DashboardLayout({
 
   if (!role) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
+      <div className="flex flex-col items-center justify-center min-h-screen gap-4">
+        <AnimatedLogo size="xl" />
+        <p className="text-sm text-muted-foreground animate-pulse">
+          {locale === 'en' ? 'Loading...' : 'लोड हुँदैछ...'}
+        </p>
       </div>
     );
   }
@@ -84,10 +87,7 @@ export default function DashboardLayout({
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <SheetContent side="left" className="w-72 p-0">
             <div className="flex h-14 items-center px-4 border-b">
-              <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">E</span>
-              </div>
-              <span className="font-bold text-xl ml-2">EduNexus</span>
+              <Logo size="md" />
             </div>
             <ScrollArea className="flex-1 py-4 h-[calc(100vh-3.5rem)]">
               <div className="px-3 space-y-1">

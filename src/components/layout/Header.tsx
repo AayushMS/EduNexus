@@ -1,10 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { LanguageToggle } from '@/components/shared/LanguageToggle';
-import { ThemeToggle } from '@/components/shared/ThemeToggle';
-import { NotificationBell } from '@/components/shared/NotificationBell';
+import { LanguageToggle, ThemeToggle, NotificationBell, Logo, AvatarGenerator } from '@/components/shared';
 import { useAuthStore } from '@/store/authStore';
 import { useLocaleStore } from '@/store/localeStore';
 import {
@@ -15,7 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Menu, LogOut, User, Settings, HelpCircle } from 'lucide-react';
+import { Menu, LogOut, User, Settings, HelpCircle, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 
 interface HeaderProps {
@@ -50,13 +47,9 @@ export function Header({ onMenuClick }: HeaderProps) {
         </Button>
 
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-lg">E</span>
-          </div>
-          <span className="font-bold text-xl hidden sm:inline-block">
-            EduNexus
-          </span>
+        <Link href="/" className="flex items-center">
+          <Logo size="sm" showText className="hidden sm:flex" />
+          <Logo size="sm" showText={false} className="sm:hidden" />
         </Link>
 
         {/* Demo mode banner */}
@@ -75,16 +68,13 @@ export function Header({ onMenuClick }: HeaderProps) {
           {/* User menu */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="relative h-9 w-9 rounded-full">
-                <Avatar className="h-9 w-9">
-                  <AvatarImage
-                    src={user?.avatarUrl}
-                    alt={user?.name || 'User'}
-                  />
-                  <AvatarFallback>
-                    {user?.name?.charAt(0) || 'U'}
-                  </AvatarFallback>
-                </Avatar>
+              <Button variant="ghost" className="relative h-9 gap-2 px-2 rounded-full">
+                <AvatarGenerator
+                  name={user?.name || 'Demo User'}
+                  imageUrl={user?.avatarUrl}
+                  size="sm"
+                />
+                <ChevronDown className="h-3 w-3 hidden sm:block text-muted-foreground" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-56">
